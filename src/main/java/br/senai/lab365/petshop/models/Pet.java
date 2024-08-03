@@ -4,13 +4,13 @@ public class Pet {
     private Long id;
     private String nome;
     private String raca;
-    private Long tutorId;
+    private Tutor tutor;
 
     public Pet(Long id, String nome, String raca, Long tutorId) {
         this.id = id;
         this.nome = nome;
         this.raca = raca;
-        this.tutorId = tutorId;
+        this.tutor = tutor;
     }
 
     public Long getId() {
@@ -37,12 +37,12 @@ public class Pet {
         this.raca = raca;
     }
 
-    public Long getTutorId() {
-        return tutorId;
+    public Tutor getTutor() {
+        return tutor;
     }
 
-    public void setTutorId(Long tutorId) {
-        this.tutorId = tutorId;
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
     }
 
     public boolean isPresent() {

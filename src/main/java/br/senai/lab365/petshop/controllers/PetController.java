@@ -29,6 +29,13 @@ public class PetController {
         } else {
             return ResponseEntity.notFound().build();
         }
+
+    }
+
+    @PutMapping("/{petId}/tutor/{tutorId}")
+    public ResponseEntity<Void> associarTutor(@PathVariable Long petId, @PathVariable Long tutorId) {
+        petService.associarTutor(petId, tutorId);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

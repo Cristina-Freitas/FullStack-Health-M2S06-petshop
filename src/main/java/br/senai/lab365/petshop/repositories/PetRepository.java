@@ -2,6 +2,7 @@ package br.senai.lab365.petshop.repositories;
 
 
 import br.senai.lab365.petshop.models.Pet;
+import br.senai.lab365.petshop.models.Tutor;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,15 @@ public class PetRepository {
 
     public boolean deleteById(Long id) {
         return pets.removeIf(pet -> pet.getId().equals(id));
+    }
+
+    public void associateTutor(Long petId, Tutor tutor) {
+        Optional<Pet> petOpt = findById(petId);
+        if (petOpt.isPresent()) {
+            Pet pet = petOpt.get();
+            pet.setTutor(tutor);
+            save(pet);
+        }
     }
 }
 

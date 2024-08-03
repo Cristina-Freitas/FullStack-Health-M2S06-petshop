@@ -31,7 +31,7 @@ public class TutorService {
         return tutorRepository.findAll();
     }
 
-    public Optional<Tutor> buscarTutorPorId(Long id) {
+    public static Optional<Tutor> buscarTutorPorId(Long id) {
         return tutorRepository.findById(id);
     }
 

@@ -2,6 +2,7 @@ package br.senai.lab365.petshop.services;
 
 
 import br.senai.lab365.petshop.models.Pet;
+import br.senai.lab365.petshop.models.Tutor;
 import br.senai.lab365.petshop.repositories.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,14 @@ public class PetService {
 
     public boolean deletar(Long id) {
         return petRepository.deleteById(id);
+    }
+
+    public void associarTutor(Long petId, Long tutorId) {
+        Optional<Tutor> tutorOpt = tutorService.buscarTutorPorId(tutorId);
+        if (tutorOpt.isPresent()) {
+            Tutor tutor = tutorOpt.get();
+            petRepository.associateTutor(petId, tutor);
+        }
     }
 }
 
